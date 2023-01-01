@@ -26,7 +26,17 @@ function app(){
     ///ToDo Items
     submitButton.addEventListener("click",() => {
         listItem = document.createElement("li");
-        listItem.textContent = `${title.value}                      ${reminder.value}`
+        listItem.textContent = `${title.value}\t${reminder.value}`;
+
+        ///Done button for list it
+        const doneButton = document.createElement("button");
+        doneButton.textContent = "Done";
+        doneButton.addEventListener("click", () => {
+            todoContainer.removeChild( doneButton.parentElement);
+        });
+
+        listItem.appendChild(doneButton);
+        
         todoContainer.appendChild(listItem);
     });
 

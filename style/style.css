@@ -37,8 +37,8 @@ input{
 
 button{
     align-self: flex-end;
-    width: 2em;
-    height: 2em;
+    width: auto;
+    height: auto;
 }
 
 .todo{
