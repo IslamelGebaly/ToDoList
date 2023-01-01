@@ -11,6 +11,7 @@ function app(){
 
     ///Set Reminder
     const reminder = document.createElement("input");
+    reminder.setAttribute("type", "time");
     inputContainer.appendChild(reminder);
 
     //Submit Button
