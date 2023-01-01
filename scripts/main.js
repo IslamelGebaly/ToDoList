@@ -12,7 +12,8 @@ function app(){
     ///Set Reminder
     const reminder = document.createElement("input");
     reminder.setAttribute("type", "time");
-    reminder.setAttribute("min", `${new Date().getHours()}:${new Date().getMinutes()}`)
+    reminder.setAttribute("min", `${new Date().getHours()}:${new Date().getMinutes()}`);
+    reminder.setAttribute("value", `${new Date().getHours()}:${new Date().getMinutes()}`);
     inputContainer.appendChild(reminder);
 
     //Submit Button
