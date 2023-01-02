@@ -34,6 +34,7 @@ function app(){
     submitButton.addEventListener("click",() => {
         const listItem = document.createElement("li");
         listItem.textContent = `${title.value}\t${reminder.value}`;
+        title.value = "";
 
         ///Done button for list it
         const doneButton = document.createElement("button");
