@@ -36,9 +36,20 @@ input{
 }
 
 button{
-    align-self: flex-end;
+    font-size: 20px;
+    border-radius: 50%;
     width: auto;
     height: auto;
+}
+
+.submit-btn{
+    align-self: end;
+}
+
+.check-box{
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+    margin-right: 2rem;
 }
 
 .todo{
@@ -52,5 +63,16 @@ button{
 li{
     text-align: left;
     padding: 2em;
+    border-color: black;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    padding :0;
+    align-items: center;
+}
+
+.info{
+    border-left: solid;
+    padding-left: 5px;
 }
 
