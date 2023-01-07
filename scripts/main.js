@@ -1,4 +1,5 @@
 function app(){
+
     //container
     const inputContainer = document.createElement("div");
     inputContainer.className = "container";
@@ -33,26 +34,31 @@ function app(){
 
     ///ToDo Items
     submitButton.addEventListener("click",() => {
-        const listItem = document.createElement("li");
-
-        ///Done button for list it
-        const doneButton = document.createElement("button");
-        doneButton.textContent = "✓";
-        doneButton.className = "check-box"
-        doneButton.addEventListener("click",() => onDone(doneButton, todoContainer, doneContainer));
-        
-        const info = document.createElement("div");
-        info.className = "info";
-        info.innerHTML = `${title.value}<br/>${reminder.value}`;
-
-        listItem.appendChild(doneButton);
-        listItem.appendChild(info);
-
+        listItem = createListItem(title, reminder, onDone, todoContainer, doneContainer);
         title.value = "";
 
         todoContainer.appendChild(listItem);
     });
 
+}
+
+function createListItem(title, reminder, onCheck, todoContainer, doneContainer){
+    const listItem = document.createElement("li");
+
+    ///Done button for list it
+    const doneButton = document.createElement("button");
+    doneButton.textContent = "✓";
+    doneButton.className = "check-box"
+    doneButton.addEventListener("click", onCheck(doneButton, todoContainer, doneContainer));
+    
+    const info = document.createElement("div");
+    info.className = "info";
+    info.innerHTML = `${title.value}<br/>${reminder.value}`;
+
+    listItem.appendChild(doneButton);
+    listItem.appendChild(info);
+
+    return listItem;
 }
 
 function onDone(doneButton, todoContainer, doneContainer){
@@ -84,5 +90,6 @@ function onReturn(returnButton, todoContainer, doneContainer){
     todoContainer.appendChild(listItem);
     doneContainer.removeChild(returnButton.parentElement);
 }
+
 
 app();
