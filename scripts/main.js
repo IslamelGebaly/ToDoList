@@ -1,6 +1,6 @@
 function app(){
     //container
-    const inputContainer = document.createElement("div");
+    const inputContainer = document.createElement("form");
     inputContainer.className = "container";
     document.body.appendChild(inputContainer);
 
@@ -16,9 +16,11 @@ function app(){
     inputContainer.appendChild(reminder);
 
     //Submit Button
-    const submitButton = document.createElement("button");
-    submitButton.textContent = "+";
-    submitButton.className = "submit-btn"
+    const submitButton = document.createElement("input");
+    submitButton.setAttribute("type", "submit");
+    submitButton.value = "+";
+    submitButton.classList.add("btn");
+    submitButton.classList.add("submit-btn");
     inputContainer.appendChild(submitButton);
     
     //TODOs field
@@ -32,13 +34,15 @@ function app(){
     document.body.appendChild(doneContainer);
 
     ///ToDo Items
-    submitButton.addEventListener("click",() => {
+    inputContainer.onsubmit = (event) => {
+        event.preventDefault();
         const listItem = document.createElement("li");
 
         ///Done button for list it
         const doneButton = document.createElement("button");
         doneButton.textContent = "✓";
-        doneButton.className = "check-box"
+        doneButton.classList.add("btn");
+        doneButton.classList.add("check-box");
         doneButton.addEventListener("click",() => onDone(doneButton, todoContainer, doneContainer));
         
         const info = document.createElement("div");
@@ -51,7 +55,7 @@ function app(){
         title.value = "";
 
         todoContainer.appendChild(listItem);
-    });
+    };
 
 }
 
@@ -60,7 +64,8 @@ function onDone(doneButton, todoContainer, doneContainer){
     
     const returnButton = document.createElement("button");
     returnButton.textContent = "✓";
-    returnButton.className = "check-box";
+    returnButton.classList.add("btn");
+    returnButton.classList.add("check-box");
     returnButton.addEventListener("click", () => onReturn(returnButton, todoContainer, doneContainer));
 
     listItem.appendChild(returnButton);
@@ -75,7 +80,8 @@ function onReturn(returnButton, todoContainer, doneContainer){
 
     const doneButton = document.createElement("button");
     doneButton.textContent = "✓";
-    doneButton.className = "check-box";
+    doneButton.classList.add("btn");
+    doneButton.classList.add("check-box");
     doneButton.addEventListener("click", () => onDone(doneButton, todoContainer, doneContainer));
 
     listItem.appendChild(doneButton);

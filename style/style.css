@@ -4,6 +4,7 @@ body{
     align-items: center;
     text-align: center;
     flex-direction: column;
+    background-color: antiquewhite;
 }
 
 .container{
@@ -33,20 +34,25 @@ input{
     height: 1em;
 }
 
-button{
+.btn{
     font-size: 1.5em;
     border-radius: 50%;
     width: auto;
     height: auto;
 }
 
-button:hover{
+.btn:hover{
     background-color: greenyellow;
     color: white;
 }
 
 .submit-btn{
-    align-self: end;
+    align-self: flex-end;
+}
+
+.submit-btn:hover{
+    background-color: greenyellow;
+    color: white;
 }
 
 .check-box{
