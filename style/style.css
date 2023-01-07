@@ -52,16 +52,18 @@ button:hover{
 }
 
 .check-box{
-    align-self: flex-end;
-    margin-bottom: 0.5rem;
-    margin-right: 2rem;
-    border-bottom: 2px solid black;
+    position: relative;
+    bottom: 50%;
+    font-size: small;
+    margin: 0 2rem 0 2rem;
+    border-right: 2px solid black;
 }
 
 .ToDos-list{
     width: 40rem;
     height: auto;
     border: 2px solid black;
+    padding-inline-start: 0px;
 }
 
 .ToDos-list:empty{
@@ -78,12 +80,12 @@ li{
     align-items: center;
 }
 
-
 li:nth-last-child(1){
     border-bottom: none;
 }
 
 .info{
+    font: 50px, bold;
     border-left: solid;
     padding-left: 5px;
 }
