@@ -42,6 +42,11 @@ button{
     height: auto;
 }
 
+button:hover{
+    background-color: black;
+    color: white;
+}
+
 .submit-btn{
     align-self: end;
 }
@@ -50,25 +55,32 @@ button{
     align-self: flex-end;
     margin-bottom: 0.5rem;
     margin-right: 2rem;
+    border-bottom: 2px solid black;
 }
 
-.todo{
-    width: 40em;
+.ToDos-list{
+    width: 40rem;
     height: auto;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px 1px 1px 1px;
+    border: 2px solid black;
+}
+
+.ToDos-list:empty{
+    border: none;
 }
 
 li{
+    list-style-type: none;
+    width: 100%;
     text-align: left;
-    padding: 2em;
-    border-color: black;
-    border-width: 1px;
+    border-bottom: 2px solid black;
     display: flex;
     flex-direction: row;
-    padding :0;
     align-items: center;
+}
+
+
+li:nth-last-child(1){
+    border-bottom: none;
 }
 
 .info{

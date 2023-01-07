@@ -23,12 +23,12 @@ function app(){
     
     //TODOs field
     const todoContainer = document.createElement("ul");
-    todoContainer.className = "todo";
+    todoContainer.className = "ToDos-list";
     document.body.appendChild(todoContainer);
 
     //Done field
     const doneContainer = document.createElement("ul");
-    doneContainer.className = "todo";
+    doneContainer.className = "ToDos-list";
     document.body.appendChild(doneContainer);
 
     ///ToDo Items
