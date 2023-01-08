@@ -63,6 +63,14 @@ input{
     border-right: 2px solid black;
 }
 
+label{
+    margin-top: 2rem;
+    font-size: 1.25em;
+    position: relative;
+    right: 19.5rem;
+    border-bottom: 1px solid black;
+}
+
 .ToDos-list{
     width: 42rem;
     height: auto;

@@ -25,6 +25,10 @@ function app(){
     submitButton.classList.add("submit-btn");
     inputContainer.appendChild(submitButton);
     
+    //Todo Label
+    const todoLabel = document.createElement("label");
+    todoLabel.textContent = "ToDo";
+    document.body.appendChild(todoLabel);
     //TODOs field
     const todoContainer = document.createElement("ul");
     todoContainer.className = "ToDos-list";
@@ -36,6 +40,10 @@ function app(){
         todoContainer.appendChild(listItem);
     })
 
+    //Done label
+    const doneLabel = document.createElement("label");
+    doneLabel.textContent = "Done";
+    document.body.appendChild(doneLabel);
     //Done field
     const doneContainer = document.createElement("ul");
     doneContainer.className = "ToDos-list";
