@@ -1,4 +1,6 @@
 function app(){
+    //loading content
+    const content = JSON.parse(localStorage.getItem("content")); 
     //container
     const inputContainer = document.createElement("form");
     inputContainer.className = "container";
@@ -27,6 +29,12 @@ function app(){
     const todoContainer = document.createElement("ul");
     todoContainer.className = "ToDos-list";
     document.body.appendChild(todoContainer);
+    content.forEach((child) => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = child;
+        listItem.childNodes[0].addEventListener("click", () => onDone(listItem.childNodes[0], todoContainer, doneContainer));
+        todoContainer.appendChild(listItem);
+    })
 
     //Done field
     const doneContainer = document.createElement("ul");
@@ -45,6 +53,17 @@ function app(){
         title.value = "";
 
         todoContainer.appendChild(listItem);
+    };
+
+    //Store before quitting
+    window.onbeforeunload = () => {
+        localStorage.clear();
+        const storage = [];
+        todoContainer.childNodes.forEach((chileNode) => {
+            storage.push(chileNode.innerHTML);
+        });
+        const content = JSON.stringify(storage);
+        localStorage.setItem("content", content);
     };
 
 }
