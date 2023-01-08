@@ -36,22 +36,12 @@ function app(){
     ///ToDo Items
     inputContainer.onsubmit = (event) => {
         event.preventDefault();
-        const listItem = document.createElement("li");
-
-        ///Done button for list it
-        const doneButton = document.createElement("button");
-        doneButton.textContent = "✓";
-        doneButton.classList.add("btn");
-        doneButton.classList.add("check-box");
-        doneButton.addEventListener("click",() => onDone(doneButton, todoContainer, doneContainer));
         
-        const info = document.createElement("div");
-        info.className = "info";
-        info.innerHTML = `${title.value}<br/>${reminder.value}`;
+        ///Done button for list it
+        const doneButton = createBtn();
+        doneButton.addEventListener("click",() => onDone(doneButton, todoContainer, doneContainer));
 
-        listItem.appendChild(doneButton);
-        listItem.appendChild(info);
-
+        const listItem = createListItem(`${title.value}<br/>${reminder.value}` ,doneButton);
         title.value = "";
 
         todoContainer.appendChild(listItem);
@@ -59,36 +49,43 @@ function app(){
 
 }
 
-function onDone(doneButton, todoContainer, doneContainer){
+function createListItem(content, btn){
     const listItem = document.createElement("li");
-    
-    const returnButton = document.createElement("button");
-    returnButton.textContent = "✓";
-    returnButton.classList.add("btn");
-    returnButton.classList.add("check-box");
+
+    const info = document.createElement("div");
+    info.className = "info";
+    info.innerHTML = content;
+
+    listItem.appendChild(btn);
+    listItem.appendChild(info);
+    return listItem;
+}
+
+function createBtn(){
+    const btn = document.createElement("button");
+    btn.textContent = "✓";
+    btn.classList.add("btn");
+    btn.classList.add("check-box");
+    return btn;
+}
+
+function onDone(doneButton, todoContainer, doneContainer){
+    const returnButton = createBtn();
     returnButton.addEventListener("click", () => onReturn(returnButton, todoContainer, doneContainer));
 
-    listItem.appendChild(returnButton);
-    listItem.appendChild(doneButton.parentElement.childNodes[1]);
+    const listItem = createListItem(doneButton.parentElement.childNodes[1].innerHTML, returnButton);
     
     doneContainer.appendChild(listItem);
     todoContainer.removeChild(doneButton.parentElement);
 }
 
 function onReturn(returnButton, todoContainer, doneContainer){
-    const listItem = document.createElement("li");
-
-    const doneButton = document.createElement("button");
-    doneButton.textContent = "✓";
-    doneButton.classList.add("btn");
-    doneButton.classList.add("check-box");
+    const doneButton = createBtn();
     doneButton.addEventListener("click", () => onDone(doneButton, todoContainer, doneContainer));
 
-    listItem.appendChild(doneButton);
-    listItem.appendChild(returnButton.parentElement.childNodes[1]);
-
+    const listItem = createListItem(returnButton.parentElement.childNodes[1].innerHTML, doneButton);
+    
     todoContainer.appendChild(listItem);
     doneContainer.removeChild(returnButton.parentElement);
 }
-let nig = false;
 app();
